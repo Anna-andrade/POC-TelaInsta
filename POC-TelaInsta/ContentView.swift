@@ -12,19 +12,24 @@ struct ContentView: View {
         VStack(spacing: 0.0) {
             Header()
             
-            Stories()
+            ScrollView(.vertical, showsIndicators: false) {
+                
+                Stories()
+                
+                Divider()
+                
+                Post()
+                
+                Post(image: "family", description: "ieie")
+            }
             
-            Divider()
-            
-            Post()
-            
-            Post(image: "family", description: "ieie")
-            
-            Spacer()
+            TabBar()
+                
+            }
             
             }
     }
-    }
+    
 
 
 struct Header: View {
@@ -194,6 +199,32 @@ VStack(alignment: .leading, spacing: 0.0) {
     }
     .padding(.horizontal, 12)
     .padding(.vertical, 9)
+}
+    }
+}
+
+struct TabBar: View {
+    var body: some View {
+VStack (spacing: 0.0) {
+    Divider()
+    
+    HStack{
+        Image("home")
+        Spacer()
+        Image("search")
+        Spacer()
+        Image("reels")
+        Spacer()
+        Image("shop")
+        Spacer()
+        Image("profile")
+            .resizable()
+            .frame(width: 21, height: 21)
+            .cornerRadius(50)
+        
+    }
+    .padding(.horizontal, 25)
+    .padding(.top, 10)
 }
     }
 }
